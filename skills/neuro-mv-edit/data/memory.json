@@ -1,0 +1,136 @@
+{
+  "system": {
+    "skill": "neuro-mv-edit",
+    "version": "1.10.0",
+    "last_updated": "2026-11-06T20:30:00-03:00",
+    "description": "Memória base do Neuro MV Edit: glossários por segmento para corrigir a transcrição. Preferências aprendidas e histórico de cada usuário ficam em ~/.neuro-mv-edit/memory.json."
+  },
+  "agro_legal_glossary": {
+    "description": "Dicionário de termos críticos do agronegócio, direito bancário, tributário e societário para correção automática de alucinações do Whisper.",
+    "replacements": {
+      "célula": "cédula (quando referente a CPR / CCB)",
+      "alinação": "alienação fiduciária",
+      "arros heiros": "arrozeiros",
+      "arroszeiros": "arrozeiros",
+      "um prêmio ser aberto": "um emprego a céu aberto",
+      "matopiba": "Matopiba (Maranhão, Tocantins, Piauí e Bahia)",
+      "barter": "operação de Barter",
+      "recuperação de produtor": "recuperação judicial do produtor rural",
+      "itr": "ITR",
+      "car": "CAR (Cadastro Ambiental Rural)",
+      "funrural": "Funrural",
+      "seguro defeso": "seguro rural / PROAGRO",
+      "proagro": "PROAGRO",
+      "vencimento antecipado": "vencimento antecipado da dívida",
+      "tema 1348": "Tema 1.348 do STF",
+      "tema 796": "Tema 796 do STF",
+      "itcmd": "ITCMD (Imposto sobre Transmissão Causa Mortis e Doação)",
+      "itbi": "ITBI (Imposto de Transmissão de Bens Imóveis)",
+      "integralização de imóveis": "integralização de capital social com imóveis",
+      "holding rural": "holding rural / holding patrimonial",
+      "reserva de usufruto": "doação com reserva de usufruto vitalício",
+      "planejamento sucessório": "planejamento sucessório e patrimonial"
+    },
+    "segmentos": [
+      "juridico_agro",
+      "juridico_tributario",
+      "institucional_juridico"
+    ],
+    "legendas": {
+      "célula": "cédula",
+      "alinação": "alienação",
+      "arros heiros": "arrozeiros",
+      "arroszeiros": "arrozeiros",
+      "um prêmio ser aberto": "um emprego a céu aberto",
+      "matopiba": "Matopiba",
+      "itr": "ITR",
+      "car": "CAR",
+      "funrural": "Funrural",
+      "proagro": "PROAGRO",
+      "tema 1348": "Tema 1.348",
+      "tema 796": "Tema 796",
+      "itcmd": "ITCMD",
+      "itbi": "ITBI",
+      "barter": "Barter"
+    },
+    "_nota": "`legendas` = só correções de grafia/transcrição, aplicadas nas legendas (nunca acrescentam palavras). `replacements` = forma completa dos termos, como dica para o agente escrever cenas e copy."
+  },
+  "automotive_crm_glossary": {
+    "description": "Dicionário de termos de concessionárias, gestão comercial, pós-venda e CRM para correção automática de alucinações do Whisper.",
+    "replacements": {
+      "dms": "DMS (Dealership Management System)",
+      "crm": "CRM automotivo",
+      "shorun": "showroom",
+      "chourom": "showroom",
+      "test drive": "test-drive",
+      "teste drive": "test-drive",
+      "pos venda": "pós-venda",
+      "pós venda": "pós-venda",
+      "follow up": "follow-up",
+      "folow up": "follow-up",
+      "f and i": "F&I (Financiamento & Seguros)",
+      "f&i": "F&I",
+      "ticket medio": "ticket médio",
+      "sla": "SLA de atendimento (tempo de resposta)",
+      "passagem de oficina": "passagem de oficina",
+      "lead time": "lead time de atendimento",
+      "venda direta": "venda direta (frotista / PCD)",
+      "trade in": "trade-in (usado na troca)"
+    },
+    "segmentos": [
+      "automotivo_crm_vendas"
+    ],
+    "legendas": {
+      "dms": "DMS",
+      "crm": "CRM",
+      "shorun": "showroom",
+      "chourom": "showroom",
+      "test drive": "test-drive",
+      "teste drive": "test-drive",
+      "pos venda": "pós-venda",
+      "pós venda": "pós-venda",
+      "follow up": "follow-up",
+      "folow up": "follow-up",
+      "f and i": "F&I",
+      "f&i": "F&I",
+      "ticket medio": "ticket médio",
+      "sla": "SLA",
+      "trade in": "trade-in"
+    },
+    "_nota": "`legendas` = só correções de grafia/transcrição, aplicadas nas legendas (nunca acrescentam palavras). `replacements` = forma completa dos termos, como dica para o agente escrever cenas e copy."
+  },
+  "education_bilingual_glossary": {
+    "description": "Dicionário fonético educacional e pedagógico para correção automática de alucinações do Whisper.",
+    "replacements": {
+      "bilingue": "bilíngue",
+      "ensino bilingue": "ensino bilíngue",
+      "g dois": "G2",
+      "g três": "G3",
+      "g tres": "G3",
+      "g quatro": "G4",
+      "g cinco": "G5",
+      "socio emocional": "socioemocional",
+      "sócio emocional": "socioemocional",
+      "pedagogia de projeto": "Pedagogia de Projetos"
+    },
+    "segmentos": [
+      "educacao_escolar_bilingue"
+    ],
+    "legendas": {
+      "bilingue": "bilíngue",
+      "g dois": "G2",
+      "g três": "G3",
+      "g tres": "G3",
+      "g quatro": "G4",
+      "g cinco": "G5",
+      "socio emocional": "socioemocional",
+      "sócio emocional": "socioemocional"
+    },
+    "_nota": "`legendas` = só correções de grafia/transcrição, aplicadas nas legendas (nunca acrescentam palavras). `replacements` = forma completa dos termos, como dica para o agente escrever cenas e copy."
+  },
+  "learned_preferences": {},
+  "history": [],
+  "learning_loop_instructions": {
+    "how_to_update": "Ao finalizar qualquer novo vídeo, a IA deve registrar no histórico o projeto, durações, tomadas e lições aprendidas, e atualizar as preferências do perfil caso o usuário faça um ajuste específico."
+  }
+}

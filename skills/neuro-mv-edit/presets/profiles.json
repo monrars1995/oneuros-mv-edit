@@ -1,0 +1,241 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "3.1.0",
+  "description": "Banco de perfis de apresentadores, marcas e instituições. Os perfis deste arquivo são exemplos fictícios; perfis reais ficam na biblioteca do usuário (~/.neuro-mv-edit/perfis).",
+  "profiles": {
+    "exemplo_juridico": {
+      "id": "exemplo_juridico",
+      "active": true,
+      "name": "Dra. Ana Exemplo",
+      "handle": "@exemplo",
+      "role": "Advogada (perfil de demonstração)",
+      "segment": "juridico_tributario",
+      "industry_name": "Direito Tributário (exemplo)",
+      "oab": "OAB/UF 000000 (fictício)",
+      "theme_default": "editorial_noir",
+      "estilo_padrao": "editorial_sobrio",
+      "platform_default": "instagram_reels",
+      "compliance_framework": "oab_provimento_205_2021",
+      "strict_rules": {
+        "burned_subtitles": true,
+        "show_handle_badge": true,
+        "final_fade_out": true,
+        "dual_export_crf": {
+          "enabled": true,
+          "master_crf": 17,
+          "light_crf": 23,
+          "light_suffix": "_leve"
+        }
+      },
+      "typography": {
+        "subtitles_font": "Cal Sans SemiBold",
+        "subtitles_size_px_1080": 60,
+        "subtitles_color": "#FFFFFF",
+        "subtitles_highlight_color": "#E8C27A",
+        "subtitles_highlight_keywords": [
+          "prazo",
+          "STF",
+          "STJ",
+          "imposto"
+        ],
+        "subtitles_highlight_numbers": true,
+        "subtitles_stroke_color": "#000000",
+        "subtitles_stroke_width": 2,
+        "subtitles_shadow": "0px 4px 12px rgba(0,0,0,0.65)",
+        "subtitles_anchor_y": 1300,
+        "subtitles_max_lines": 2,
+        "subtitles_max_words_per_line": 5,
+        "title_font": "Instrument Serif",
+        "labels_font": "Inter"
+      },
+      "video_grade": {
+        "preset_name": "Editorial Quente",
+        "ffmpeg_curves": "master='0/0.02 0.25/0.27 0.5/0.55 0.8/0.84 1/0.98'",
+        "ffmpeg_colorbalance": "rs=-0.02:gs=0.01:bs=0.01:rm=-0.03:gm=0.015:bh=0.01",
+        "ffmpeg_eq": "contrast=1.05:saturation=0.96"
+      },
+      "transitions": {
+        "default": "Flash quente (0.35s)",
+        "hard_cuts_allowed": true,
+        "prohibited": [
+          "whip_pan_fast",
+          "glitch_heavy"
+        ]
+      },
+      "sfx": {
+        "click_default": "subtle_switch_click",
+        "whoosh_transition": "smooth_subtle_whoosh",
+        "impact_sound": "low_bass_thud",
+        "elevenlabs_prompt_click": "subtle mechanical switch click sound, clean studio recording, short 0.2s",
+        "elevenlabs_prompt_whoosh": "gentle cinema whoosh transition air movement, 0.4s",
+        "elevenlabs_prompt_thud": "deep punchy bass thud hit for data emphasis, 0.3s"
+      },
+      "framing_and_zoom": {
+        "head_anchor_y_default": 560,
+        "head_anchor_x_default": 540,
+        "zoom_subtle_factor": 1.05,
+        "punch_in_factor": 1.07,
+        "safe_head_clearance_px": 60
+      },
+      "audio_mix": {
+        "target_lufs": -14.0,
+        "true_peak_max_dbfs": -1.5,
+        "codec": "aac",
+        "bitrate": "192k"
+      },
+      "editorial_guidelines": {
+        "tone": "Técnico, didático e sóbrio",
+        "cta_default": "Salve esta publicação para consultar quando precisar.",
+        "compliance_oab": "Provimento 205/2021: sem captação de clientela, sem promessa de resultado. Conteúdo informativo."
+      },
+      "default_metadata": {
+        "artist": "Dra. Ana Exemplo",
+        "author": "Dra. Ana Exemplo",
+        "copyright": "Exemplo Advocacia (fictício)",
+        "genre": "Direito Tributário",
+        "keywords": [
+          "Direito Tributário",
+          "Planejamento Tributário",
+          "Exemplo"
+        ],
+        "caption_template": "Um prazo perdido pode custar caro. Neste vídeo, explicamos o que observar antes de responder a uma notificação fiscal.\n\nPontos analisados:\n1️⃣ O prazo de resposta;\n2️⃣ Os documentos que comprovam o pagamento;\n3️⃣ Quando vale buscar orientação.\n\n{nota}\n\nSalve este post e compartilhe com quem precisa dessa orientação.",
+        "first_comment": "Dúvidas sobre o tema? Deixe sua pergunta aqui nos comentários."
+      }
+    },
+    "exemplo_educacao": {
+      "id": "exemplo_educacao",
+      "active": true,
+      "name": "Escola Exemplo",
+      "handle": "@exemplo",
+      "role": "Instituição de ensino (perfil de demonstração)",
+      "segment": "educacao_escolar_bilingue",
+      "industry_name": "Educação Básica (exemplo)",
+      "theme_default": "educacao_vibrante",
+      "estilo_padrao": "educativo_claro",
+      "platform_default": "instagram_reels",
+      "compliance_framework": "educacao_eca_lgpd",
+      "strict_rules": {
+        "burned_subtitles": true,
+        "show_handle_badge": false,
+        "show_handle_badge_note": "Cards institucionais limpos, sem @ fixo na tela.",
+        "final_fade_out": true,
+        "child_framing_guard": "Em tomadas duplas (responsável + aluno), o zoom nunca pode cortar o rosto da criança ou do adolescente ao lado."
+      },
+      "typography": {
+        "subtitles_font": "DM Sans Bold",
+        "subtitles_size_px_1080": 56,
+        "subtitles_color": "#FFFFFF",
+        "subtitles_highlight_color": "#FFB703",
+        "subtitles_highlight_keywords": [
+          "aprender",
+          "família",
+          "projeto",
+          "futuro"
+        ],
+        "subtitles_highlight_numbers": false,
+        "subtitles_stroke_color": "#0B3C49",
+        "subtitles_stroke_width": 2,
+        "subtitles_shadow": "0px 4px 14px rgba(11, 60, 73, 0.78)",
+        "subtitles_anchor_y": 1320,
+        "subtitles_max_lines": 2,
+        "subtitles_max_words_per_line": 5,
+        "title_font": "Cal Sans",
+        "labels_font": "DM Sans"
+      },
+      "video_grade": {
+        "preset_name": "Campus Quente",
+        "description": "Corrige luz mista de pátio ou quadra e aquece levemente os tons de pele.",
+        "ffmpeg_curves": "master='0/0.01 0.25/0.26 0.5/0.53 0.78/0.81 1/0.99'",
+        "ffmpeg_colorbalance": "rs=0.01:gs=-0.008:bs=0.005:rm=0.015:gm=-0.012:bh=0.01",
+        "ffmpeg_eq": "contrast=1.05:saturation=1.04:gamma=1.01"
+      },
+      "transitions": {
+        "default": "Dissolve com brilho quente (0.32s)",
+        "hard_cuts_allowed": true,
+        "preferred": [
+          "warm_gold_glow_dissolve",
+          "smooth_mask_wipe"
+        ],
+        "prohibited": [
+          "glitch_heavy",
+          "strobe_aggressive"
+        ]
+      },
+      "sfx": {
+        "click_default": "soft_warm_pop",
+        "whoosh_transition": "gentle_breeze_whoosh",
+        "impact_sound": "warm_marimba_accent",
+        "elevenlabs_prompt_click": "warm soft tactile pop click, friendly educational UI sound, clean studio, 0.18s",
+        "elevenlabs_prompt_whoosh": "gentle warm air breeze whoosh transition, uplifting cinematic softness, 0.38s",
+        "elevenlabs_prompt_thud": "warm acoustic marimba and soft piano chord accent, 0.45s",
+        "elevenlabs_prompt_music": "uplifting warm acoustic guitar and soft piano instrumental background, 94 bpm, no vocals"
+      },
+      "framing_and_zoom": {
+        "head_anchor_y_default": 550,
+        "head_anchor_x_default": 540,
+        "zoom_subtle_factor": 1.04,
+        "punch_in_factor": 1.08,
+        "safe_head_clearance_px": 60,
+        "family_duo_mode": true
+      },
+      "editorial_guidelines": {
+        "tone": "Acolhedor, humano e claro",
+        "cta_default": "Agende uma visita e conheça a escola de perto.",
+        "compliance_eca_lgpd": "ECA (Lei 8.069/90) e LGPD: imagem de menores só com autorização das famílias; linguagem positiva e inclusiva."
+      },
+      "default_metadata": {
+        "artist": "Escola Exemplo",
+        "author": "Escola Exemplo",
+        "copyright": "Escola Exemplo (fictícia)",
+        "genre": "Educação Básica",
+        "keywords": [
+          "Educação",
+          "Escola",
+          "Família",
+          "Exemplo"
+        ],
+        "first_comment": "Quer conhecer a escola? Envie VISITA no direct. 💙"
+      }
+    },
+    "template_novo_perfil": {
+      "id": "template_novo_perfil",
+      "active": false,
+      "name": "Nome do Criador ou Especialista",
+      "handle": "@usuario",
+      "role": "Área de Atuação ou Cargo",
+      "segment": "geral_creator",
+      "industry_name": "Segmento / Nicho do Canal",
+      "theme_default": "noticia_impacto",
+      "platform_default": "instagram_reels",
+      "compliance_framework": "general_creator_retention",
+      "strict_rules": {
+        "burned_subtitles": true,
+        "show_handle_badge": true,
+        "final_fade_out": true
+      },
+      "typography": {
+        "subtitles_font": "Inter ExtraBold",
+        "subtitles_size_px_1080": 60,
+        "subtitles_color": "#FFFFFF",
+        "subtitles_anchor_y": 1300
+      },
+      "framing_and_zoom": {
+        "head_anchor_y_default": 540,
+        "head_anchor_x_default": 540
+      },
+      "editorial_guidelines": {
+        "tone": "Engajador, direto e de alta retenção",
+        "cta_default": "Compartilhe este vídeo com quem precisa deste conhecimento."
+      },
+      "default_metadata": {
+        "artist": "Nome do Criador",
+        "copyright": "Nome da Empresa ou Canal",
+        "genre": "Educação e Negócios",
+        "keywords": [
+          "Criador de Conteúdo",
+          "Negócios"
+        ]
+      }
+    }
+  }
+}

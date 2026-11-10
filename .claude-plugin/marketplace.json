@@ -1,0 +1,29 @@
+{
+  "name": "neuro-mv-edit",
+  "owner": {
+    "name": "Ramon Ribeiro",
+    "url": "https://github.com/monrars1995"
+  },
+  "description": "Marketplace do plugin Neuro MV Edit (pós-produção audiovisual com Remotion e HyperFrames).",
+  "plugins": [
+    {
+      "name": "neuro-mv-edit",
+      "source": "./",
+      "description": "Pós-produção e motion graphics de alta retenção para vídeos verticais e horizontais (Reels, TikTok, Shorts, YouTube, Feed): decupagem automática, legendas pt-BR, edição no Remotion Studio ou no HyperFrames com a identidade de cada perfil, sound design sincronizado, master −14 LUFS, metadados, copy e entrega organizada.",
+      "homepage": "https://github.com/monrars1995/oneuros-mv-edit",
+      "license": "MIT",
+      "keywords": [
+        "video-editing",
+        "reels",
+        "tiktok",
+        "shorts",
+        "motion-graphics",
+        "captions",
+        "hyperframes",
+        "remotion",
+        "elevenlabs",
+        "pt-br"
+      ]
+    }
+  ]
+}

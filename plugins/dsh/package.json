@@ -1,0 +1,5 @@
+{
+  "private": true,
+  "description": "Marca plugins/dsh como ESM. O manifesto do plugin do DeepSeek Harness (dsh) fica no package.json da raiz.",
+  "type": "module"
+}

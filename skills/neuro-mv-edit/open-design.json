@@ -1,0 +1,70 @@
+{
+  "$schema": "https://open-design.ai/schemas/plugin.v1.json",
+  "specVersion": "1.0.0",
+  "name": "neuro-mv-edit",
+  "title": "Neuro MV Edit",
+  "title_i18n": {
+    "en": "Neuro MV Edit",
+    "pt-BR": "Neuro MV Edit"
+  },
+  "version": "1.10.0",
+  "description": "Turns raw talking-head footage into a finished high-retention vertical video: automatic cuts, pt-BR captions, branded motion graphics edited in Remotion Studio or HyperFrames, synced sound design, −14 LUFS master, metadata and post copy.",
+  "description_i18n": {
+    "en": "Turns raw talking-head footage into a finished high-retention vertical video: automatic cuts, pt-BR captions, branded motion graphics edited in Remotion Studio or HyperFrames, synced sound design, −14 LUFS master, metadata and post copy.",
+    "pt-BR": "Pós-produção e motion graphics de alta retenção para vídeos verticais e horizontais (Reels, TikTok, Shorts, YouTube, Feed): decupagem automática, legendas pt-BR, edição no Remotion Studio ou no HyperFrames com a identidade de cada perfil, sound design sincronizado, master −14 LUFS, metadados, copy e entrega organizada."
+  },
+  "author": {
+    "name": "Ramon Ribeiro",
+    "url": "https://github.com/monrars1995"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/monrars1995/oneuros-mv-edit",
+  "tags": [
+    "video",
+    "reels",
+    "motion-graphics",
+    "captions",
+    "hyperframes",
+    "talking-head"
+  ],
+  "compat": {
+    "agentSkills": [
+      {
+        "path": "./SKILL.md"
+      }
+    ]
+  },
+  "od": {
+    "kind": "skill",
+    "taskKind": "new-generation",
+    "mode": "video",
+    "scenario": "marketing",
+    "useCase": {
+      "query": {
+        "pt-BR": "Edite o vídeo {{video}} como Reels para o perfil {{perfil}} seguindo a skill Neuro MV Edit: decupagem, legendas, cenas (Remotion ou HyperFrames), sound design e master.",
+        "en": "Edit {{video}} as a Reels for the {{perfil}} profile following the Neuro MV Edit skill: cuts, captions, scenes (Remotion or HyperFrames), sound design and master."
+      }
+    },
+    "inputs": [
+      {
+        "name": "video",
+        "label": "Vídeo bruto (caminho)",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "perfil",
+        "label": "Perfil",
+        "type": "string",
+        "required": false
+      }
+    ],
+    "capabilities": [
+      "prompt:inject",
+      "fs:read",
+      "fs:write",
+      "bash",
+      "network"
+    ]
+  }
+}

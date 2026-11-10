@@ -1,0 +1,17 @@
+{
+  "description": "neuro-mv-edit: no início da sessão, lembra o fluxo de decisões de exportação (resolução, codec, fps) e o estado da última verificação do ambiente. Rápido, sem rede.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -I \"${CLAUDE_PLUGIN_ROOT}/skills/neuro-mv-edit/scripts/neuro_verificar.py\" --hook",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

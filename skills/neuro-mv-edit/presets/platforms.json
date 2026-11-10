@@ -1,0 +1,176 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "2.0.0",
+  "description": "Especificações técnicas, dimensões e zonas seguras oficiais por plataforma e formato de entrega.",
+  "platforms": {
+    "instagram_reels": {
+      "name": "Instagram Reels",
+      "aspect_ratio": "9:16",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "safe_zones": {
+        "top_margin_px": 250,
+        "bottom_margin_px": 385,
+        "left_margin_px": 70,
+        "right_margin_high_px": 55,
+        "right_margin_low_px": 193,
+        "right_margin_split_y": 1110,
+        "description": "Topo ocupado por câmera/Reels header; base ocupada por legenda do post, áudio e botão Seguir; lateral direita baixa ocupada por ícones de curtir, comentar e compartilhar."
+      },
+      "graphics_usable_box": {
+        "x_min": 70,
+        "x_max": 1025,
+        "y_min": 250,
+        "y_max_anchor": "above_head_minus_60px"
+      },
+      "subtitles_box": {
+        "x_min": 70,
+        "x_max": 887,
+        "center_x": 478,
+        "y_min": 1150,
+        "y_max": 1480,
+        "anchor_y": 1300,
+        "max_width_px": 760
+      },
+      "codec": {
+        "video": "libx264",
+        "crf": 18,
+        "preset": "slow",
+        "audio": "aac",
+        "audio_bitrate": "192k",
+        "audio_loudness_target_lufs": -14
+      }
+    },
+    "tiktok": {
+      "name": "TikTok Video",
+      "aspect_ratio": "9:16",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "safe_zones": {
+        "top_margin_px": 200,
+        "bottom_margin_px": 320,
+        "left_margin_px": 70,
+        "right_margin_high_px": 60,
+        "right_margin_low_px": 170,
+        "right_margin_split_y": 900,
+        "description": "Lateral direita tem barra de ações vertical a partir de y=900; base tem legenda expansível e carrossel de som."
+      },
+      "graphics_usable_box": {
+        "x_min": 70,
+        "x_max": 1020,
+        "y_min": 200,
+        "y_max_anchor": "above_head_minus_50px"
+      },
+      "subtitles_box": {
+        "x_min": 70,
+        "x_max": 910,
+        "center_x": 490,
+        "y_min": 1180,
+        "y_max": 1540,
+        "anchor_y": 1320
+      },
+      "codec": {
+        "video": "libx264",
+        "crf": 18,
+        "audio_loudness_target_lufs": -14
+      }
+    },
+    "youtube_shorts": {
+      "name": "YouTube Shorts",
+      "aspect_ratio": "9:16",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "safe_zones": {
+        "top_margin_px": 220,
+        "bottom_margin_px": 340,
+        "left_margin_px": 70,
+        "right_margin_high_px": 60,
+        "right_margin_low_px": 150,
+        "right_margin_split_y": 1000,
+        "description": "Topo com pesquisa e menu Shorts; lateral direita com Like/Dislike/Comentários/Remix; base com canal e botão Inscrever-se."
+      },
+      "graphics_usable_box": {
+        "x_min": 70,
+        "x_max": 1020,
+        "y_min": 220,
+        "y_max_anchor": "above_head_minus_60px"
+      },
+      "subtitles_box": {
+        "x_min": 70,
+        "x_max": 930,
+        "center_x": 500,
+        "y_min": 1160,
+        "y_max": 1520,
+        "anchor_y": 1300
+      },
+      "codec": {
+        "video": "libx264",
+        "crf": 18,
+        "audio_loudness_target_lufs": -14
+      }
+    },
+    "youtube_horizontal": {
+      "name": "YouTube Horizontal (Vídeo Longo / Pílula)",
+      "aspect_ratio": "16:9",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "safe_zones": {
+        "title_safe_margin_percent": 10,
+        "action_safe_margin_percent": 5,
+        "x_min": 192,
+        "x_max": 1728,
+        "y_min": 108,
+        "y_max": 972,
+        "description": "Zona segura convencional 16:9. Gráficos aplicados em split-screen lateral (terço esquerdo ou direito) ou Lower Thirds estilizados sem cobrir o especialista."
+      },
+      "layout_modes": {
+        "split_lateral": {
+          "presenter_box": "x: 60 to 980, y: 0 to 1080",
+          "graphics_box": "x: 1020 to 1860, y: 120 to 960"
+        },
+        "lower_third": {
+          "graphics_box": "x: 192 to 1728, y: 680 to 972"
+        }
+      },
+      "subtitles_box": {
+        "center_x": 960,
+        "y_min": 860,
+        "y_max": 980,
+        "max_width_px": 1400
+      },
+      "codec": {
+        "video": "libx264",
+        "crf": 17,
+        "audio_loudness_target_lufs": -14
+      }
+    },
+    "instagram_feed_portrait": {
+      "name": "Instagram Feed Vertical (4:5)",
+      "aspect_ratio": "4:5",
+      "width": 1080,
+      "height": 1350,
+      "fps": 30,
+      "safe_zones": {
+        "top_margin_px": 120,
+        "bottom_margin_px": 160,
+        "left_margin_px": 60,
+        "right_margin_px": 60
+      },
+      "subtitles_box": {
+        "center_x": 540,
+        "y_min": 1020,
+        "y_max": 1220,
+        "anchor_y": 1100
+      },
+      "codec": {
+        "video": "libx264",
+        "crf": 18,
+        "audio_loudness_target_lufs": -14
+      }
+    }
+  }
+}

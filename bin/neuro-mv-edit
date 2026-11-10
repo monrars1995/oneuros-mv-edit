@@ -1,0 +1,6 @@
+#!/bin/sh
+# Comando `neuro-mv-edit` do plugin: o Claude Code e o plugin do DeepSeek/Neuro Harness (plugins/dsh)
+# põem esta pasta no PATH das sessões enquanto o plugin estiver ativo. Repassa tudo para o CLI do
+# pacote (cli/cli.js). No Windows, o mesmo papel é do neuro-mv-edit.cmd.
+DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+exec node "$DIR/../cli/cli.js" "$@"

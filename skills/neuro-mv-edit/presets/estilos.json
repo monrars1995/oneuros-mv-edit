@@ -1,0 +1,152 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "description": "Estilos de edição: ritmo de corte, legenda, câmera, peso dos SFX e volume da trilha. Um perfil aponta para um com `estilo_padrao`; um projeto pode trocar com `projeto init --estilo`.",
+  "estilos": {
+    "dinamico_reels": {
+      "nome": "Dinâmico (Reels/TikTok)",
+      "descricao": "Cortes secos nos respiros, legenda de 3 palavras e punch-ins marcados. Ritmo de feed.",
+      "corte": {
+        "preset": "tight",
+        "limiar_ms": 140
+      },
+      "legendas": {
+        "animacao": "pop",
+        "palavras_por_linha": 3
+      },
+      "camera": {
+        "punch_in": 1.09,
+        "zoom_sutil": 1.06
+      },
+      "sfx": {
+        "ganho_db": 0
+      },
+      "trilha": {
+        "volume": 0.14
+      },
+      "cenas": {
+        "intervalo_s": [
+          4,
+          6
+        ]
+      },
+      "id": "dinamico_reels"
+    },
+    "editorial_sobrio": {
+      "nome": "Editorial sóbrio",
+      "descricao": "Pausas preservadas, câmera quase parada, SFX discretos. Autoridade sem pressa (jurídico, institucional).",
+      "corte": {
+        "preset": "natural",
+        "limiar_ms": 240
+      },
+      "legendas": {
+        "animacao": "pop",
+        "palavras_por_linha": 4
+      },
+      "camera": {
+        "punch_in": 1.05,
+        "zoom_sutil": 1.03
+      },
+      "sfx": {
+        "ganho_db": -3
+      },
+      "trilha": {
+        "volume": 0.1
+      },
+      "cenas": {
+        "intervalo_s": [
+          6,
+          9
+        ]
+      },
+      "id": "editorial_sobrio"
+    },
+    "educativo_claro": {
+      "nome": "Educativo claro",
+      "descricao": "Legenda karaokê para acompanhar a leitura, respiros naturais e cenas didáticas mais longas.",
+      "corte": {
+        "preset": "natural",
+        "limiar_ms": 260
+      },
+      "legendas": {
+        "animacao": "karaoke",
+        "palavras_por_linha": 4
+      },
+      "camera": {
+        "punch_in": 1.06,
+        "zoom_sutil": 1.04
+      },
+      "sfx": {
+        "ganho_db": -2
+      },
+      "trilha": {
+        "volume": 0.12
+      },
+      "cenas": {
+        "intervalo_s": [
+          5,
+          8
+        ]
+      },
+      "id": "educativo_claro"
+    },
+    "comercial_acelerado": {
+      "nome": "Comercial acelerado",
+      "descricao": "Cortes muito secos, câmera forte e SFX presentes: ofertas, varejo e vendas.",
+      "corte": {
+        "preset": "tight",
+        "limiar_ms": 100
+      },
+      "legendas": {
+        "animacao": "pop",
+        "palavras_por_linha": 3
+      },
+      "camera": {
+        "punch_in": 1.12,
+        "zoom_sutil": 1.07
+      },
+      "sfx": {
+        "ganho_db": 1
+      },
+      "trilha": {
+        "volume": 0.16
+      },
+      "cenas": {
+        "intervalo_s": [
+          3,
+          5
+        ]
+      },
+      "id": "comercial_acelerado"
+    },
+    "documental_calmo": {
+      "nome": "Documental calmo",
+      "descricao": "Pausas longas preservadas, legenda de até 5 palavras, quase sem punch-in. Depoimentos e histórias.",
+      "corte": {
+        "preset": "natural",
+        "limiar_ms": 320
+      },
+      "legendas": {
+        "animacao": "pop",
+        "palavras_por_linha": 5
+      },
+      "camera": {
+        "punch_in": 1.03,
+        "zoom_sutil": 1.02
+      },
+      "sfx": {
+        "ganho_db": -5
+      },
+      "trilha": {
+        "volume": 0.1
+      },
+      "cenas": {
+        "intervalo_s": [
+          7,
+          10
+        ]
+      },
+      "id": "documental_calmo"
+    }
+  }
+}

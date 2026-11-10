@@ -1,0 +1,12 @@
+{
+  "name": "opencode-neuro-mv-edit",
+  "version": "1.10.0",
+  "description": "Plugin OpenCode V2 que registra a skill neuro-mv-edit (pós-produção audiovisual com Remotion e HyperFrames).",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "homepage": "https://github.com/monrars1995/oneuros-mv-edit",
+  "peerDependencies": {
+    "@opencode/plugin": ">=2.2.0"
+  }
+}

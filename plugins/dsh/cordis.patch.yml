@@ -1,0 +1,6 @@
+# neuro-mv-edit: camada do perfil do DeepSeek Harness / Neuro Harness (package.json → dsh.bundle.patch).
+# Insere o plugin (exports "." → plugins/dsh/index.js), que registra a skill neuro-mv-edit e põe o
+# comando `neuro-mv-edit` (bin/ deste pacote) no PATH das sessões enquanto estiver ativo.
+- insert:
+    - id: neuro-mv-edit
+      name: neuro-mv-edit

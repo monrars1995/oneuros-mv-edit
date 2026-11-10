@@ -1,0 +1,287 @@
+/*
+ * Neuro MV Edit — componentes compartilhados para cenas HyperFrames.
+ * Copiado para <projeto>/assets/neuro-components.css pelo `hf_project.py init`.
+ * Os valores vêm dos tokens gerados em assets/neuro-theme.css (tema + perfil + plataforma).
+ *
+ * Regras do contrato HyperFrames respeitadas aqui:
+ *  - nenhum seletor estiliza o #root de uma cena (folha linkada não pode);
+ *  - nada de `transform` em CSS nos elementos que o GSAP anima;
+ *  - nada de filtros CSS sobre o vídeo (o véu usa backdrop-filter num overlay, como o vidro do HyperFrames).
+ */
+
+.nm-scrim {
+  position: absolute;
+  left: var(--scrim-left, 0px);
+  top: var(--scrim-top-y, 0px);
+  width: var(--scrim-w, 100%);
+  height: var(--scrim-h);
+  /* denso na faixa gráfica inteira; dissolve só na direção do apresentador (vertical: até o topo da cabeça) */
+  background: linear-gradient(var(--scrim-angle, 180deg), var(--scrim-top) 0%, var(--scrim-top) var(--scrim-stop-a), var(--scrim-mid) var(--scrim-stop-b), rgba(0, 0, 0, 0) 100%);
+  -webkit-backdrop-filter: blur(var(--scrim-blur));
+  backdrop-filter: blur(var(--scrim-blur));
+  -webkit-mask-image: linear-gradient(var(--scrim-angle, 180deg), #000 0%, #000 var(--scrim-stop-b), transparent 100%);
+  mask-image: linear-gradient(var(--scrim-angle, 180deg), #000 0%, #000 var(--scrim-stop-b), transparent 100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nm-band {
+  position: absolute;
+  left: var(--gfx-x-min);
+  top: var(--gfx-y-min);
+  width: var(--gfx-w);
+  height: var(--gfx-h);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gfx-gap);
+  text-align: center;
+}
+
+.nm-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nm-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--pill-bg);
+  color: var(--pill-fg);
+  border: var(--pill-border);
+  font-family: var(--font-label), sans-serif;
+  font-weight: var(--font-label-weight);
+  font-size: var(--pill-size);
+  letter-spacing: var(--font-label-ls);
+  text-transform: uppercase;
+  padding: var(--pill-pad);
+  border-radius: var(--pill-radius);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.nm-hero {
+  font-family: var(--font-hook), sans-serif;
+  font-weight: var(--font-hook-weight);
+  font-style: var(--font-hook-style);
+  font-size: var(--hero-size);
+  line-height: var(--font-hook-lh);
+  letter-spacing: var(--font-hook-ls);
+  text-transform: var(--font-hook-transform);
+  color: var(--ink);
+}
+
+.nm-hero-sm {
+  font-size: calc(var(--hero-size) * 0.78);
+}
+
+.nm-support {
+  font-family: var(--font-support), serif;
+  font-weight: var(--font-support-weight);
+  font-style: var(--font-support-style);
+  font-size: var(--support-size);
+  line-height: var(--font-support-lh);
+  color: var(--ink);
+}
+
+.nm-label {
+  font-family: var(--font-label), sans-serif;
+  font-weight: var(--font-label-weight);
+  font-size: var(--label-size);
+  letter-spacing: var(--font-label-ls);
+  text-transform: uppercase;
+  line-height: 1.15;
+  color: var(--ink-soft);
+}
+
+.nm-data {
+  font-family: var(--font-data), sans-serif;
+  font-weight: var(--font-data-weight);
+  font-size: var(--data-size);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.nm-source {
+  font-family: var(--font-label), sans-serif;
+  font-weight: 500;
+  font-size: var(--source-size);
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+}
+
+.nm-accent { color: var(--accent); }
+
+.nm-unit { font-size: 0.5em; line-height: 1; }
+.nm-unit-pre { margin-right: 0.14em; }
+.nm-unit-suf { margin-left: 0.12em; }
+.nm-alert { color: var(--alert); }
+
+.nm-word {
+  display: inline-block;
+  margin: 0 0.12em;
+}
+
+.nm-line {
+  width: var(--line-w);
+  height: var(--line-h);
+  border-radius: 3px;
+  background: var(--accent);
+  transform-origin: 0% 50%;
+}
+
+.nm-track {
+  position: relative;
+  width: var(--track-w);
+  height: var(--track-h);
+  border-radius: 999px;
+  background: var(--track);
+  overflow: hidden;
+}
+
+.nm-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+  transform-origin: 0% 50%;
+}
+
+.nm-strike-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.nm-strike {
+  position: absolute;
+  left: -4%;
+  top: 52%;
+  width: 108%;
+  height: var(--scratch-h);
+  margin-top: calc(var(--scratch-h) / -2);
+  border-radius: 3px;
+  background: var(--alert);
+  transform-origin: 0% 50%;
+}
+
+.nm-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--list-gap);
+}
+
+.nm-item {
+  display: flex;
+  align-items: center;
+  gap: 0.42em;
+  font-family: var(--font-label), sans-serif;
+  font-weight: var(--font-label-weight);
+  font-size: calc(var(--item-size) * var(--item-k, 1));
+  color: var(--ink);
+  line-height: 1.1;
+  text-align: left;
+}
+
+.nm-check {
+  width: calc(var(--item-icon) * var(--item-k, 1));
+  height: calc(var(--item-icon) * var(--item-k, 1));
+  flex: 0 0 auto;
+}
+
+.nm-nodes {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.nm-node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: var(--node-col);
+}
+
+.nm-dot {
+  position: relative;
+  width: var(--node-d);
+  height: var(--node-d);
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  background: var(--node-idle);
+  z-index: 2;
+}
+
+.nm-dot-core {
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0;
+}
+
+.nm-halo {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: var(--node-d);
+  height: var(--node-d);
+  margin-left: calc(var(--node-d) / -2);
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  opacity: 0;
+  z-index: 1;
+}
+
+.nm-node-label {
+  font-family: var(--font-label), sans-serif;
+  font-weight: var(--font-label-weight);
+  font-size: var(--node-label-size);
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  line-height: 1.12;
+  text-align: center;
+}
+
+.nm-rail {
+  position: absolute;
+  left: calc(var(--node-col) / 2);
+  right: calc(var(--node-col) / 2);
+  top: calc(var(--node-d) / 2 - 1.5px);
+  height: 3px;
+  background: var(--track);
+  border-radius: 3px;
+  z-index: 0;
+}
+
+.nm-rail-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--accent);
+  transform-origin: 0% 50%;
+}
+
+.nm-endfade {
+  position: absolute;
+  inset: 0;
+  background: var(--endfade);
+  opacity: 0;
+  pointer-events: none;
+}

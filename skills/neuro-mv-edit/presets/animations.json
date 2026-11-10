@@ -1,0 +1,574 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "2.3.0",
+  "description": "Presets de curvas de animação, timing, motion easing e sound design para gráficos e transições. Cada preset traz o equivalente GSAP usado nas cenas HyperFrames (scripts/hf_project.py) e, quando existe, o bloco do registry HyperFrames.",
+  "easing_curves": {
+    "ease_out_cubic": "cubic-bezier(0.215, 0.61, 0.355, 1)",
+    "ease_in_out_cubic": "cubic-bezier(0.645, 0.045, 0.355, 1)",
+    "back_overshoot": "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+    "elastic_impact": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+    "sharp_expo": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "smootherstep": "function(t) { return t * t * t * (t * (t * 6 - 15) + 10); }"
+  },
+  "presets": {
+    "mask_reveal_up": {
+      "name": "Revelação por Máscara Ascendente",
+      "description": "Texto surge de baixo para cima dentro de sua própria caixa de corte.",
+      "duration_s": 0.45,
+      "easing": "sharp_expo",
+      "transform_start": "translateY(100%)",
+      "transform_end": "translateY(0%)",
+      "opacity_start": 0.0,
+      "opacity_end": 1.0,
+      "sfx_default": "whoosh_smooth",
+      "sfx_db_offset": -16,
+      "gsap": {
+        "from": {
+          "yPercent": 100,
+          "opacity": 0
+        },
+        "to": {
+          "yPercent": 0,
+          "opacity": 1,
+          "duration": 0.45,
+          "ease": "expo.out"
+        },
+        "note": "Anime o filho dentro de um wrapper com clip-path: inset(0); nunca o .clip.",
+        "registry": "lt-mask-reveal"
+      }
+    },
+    "pop_bounce": {
+      "name": "Pop com Overshoot (Pílulas e Badges)",
+      "description": "Elemento escala de 0.82 para 1.05 e estabiliza em 1.00.",
+      "duration_s": 0.35,
+      "easing": "back_overshoot",
+      "transform_start": "scale(0.82)",
+      "transform_end": "scale(1.0)",
+      "opacity_start": 0.0,
+      "opacity_end": 1.0,
+      "sfx_default": "switch_click_92470",
+      "sfx_db_offset": -14,
+      "gsap": {
+        "from": {
+          "scale": 0.82,
+          "opacity": 0
+        },
+        "to": {
+          "scale": 1,
+          "opacity": 1,
+          "duration": 0.35,
+          "ease": "back.out(1.6)"
+        },
+        "note": "Opacidade nunca quica; só a escala.",
+        "registry": "badge-pop",
+        "template": "hook (pílula)"
+      }
+    },
+    "impact_tremor": {
+      "name": "Palavra de Impacto com Micro-Tremor",
+      "description": "Palavra decisiva entra em escala 1.20 descendo rapidamente para 1.00 com micro-vibração de choque.",
+      "duration_s": 0.22,
+      "shake_duration_s": 0.35,
+      "shake_intensity_px": 6,
+      "easing": "sharp_expo",
+      "transform_start": "scale(1.22)",
+      "transform_end": "scale(1.0)",
+      "sfx_default": "low_bass_thud",
+      "sfx_db_offset": -12,
+      "gsap": {
+        "from": {
+          "scale": 1.22,
+          "opacity": 0
+        },
+        "to": {
+          "scale": 1,
+          "opacity": 1,
+          "duration": 0.22,
+          "ease": "expo.out"
+        },
+        "shake": {
+          "keyframes": {
+            "x": [6, -5, 4, -3, 2, 0]
+          },
+          "duration": 0.33,
+          "ease": "none"
+        },
+        "template": "hook (accent)",
+        "registry": "camera-shake"
+      }
+    },
+    "wipe_left_right": {
+      "name": "Varredura Horizontal (Linhas e Riscos)",
+      "description": "Linha dourada ou risco terracota se desenha da esquerda para a direita.",
+      "duration_s": 0.45,
+      "easing": "ease_out_cubic",
+      "clip_path_start": "inset(0 100% 0 0)",
+      "clip_path_end": "inset(0 0% 0 0)",
+      "sfx_default": "quick_swipe",
+      "sfx_db_offset": -18,
+      "gsap": {
+        "from": {
+          "scaleX": 0
+        },
+        "to": {
+          "scaleX": 1,
+          "duration": 0.45,
+          "ease": "expo.out"
+        },
+        "note": "transform-origin: 0% 50%; prefira scaleX a clip-path em linhas finas.",
+        "template": "quote, cta, contrast (risco)"
+      }
+    },
+    "counter_roll": {
+      "name": "Contador Numérico Sincronizado",
+      "description": "Incremento de 0 até o valor final da fala, sincronizado com o crescimento da barra gráfica.",
+      "duration_s": 0.65,
+      "easing": "ease_out_cubic",
+      "sfx_default": "clock_tick_stream_subtle",
+      "sfx_db_offset": -20,
+      "gsap": {
+        "proxy": {
+          "from": {
+            "v": 0
+          },
+          "to": {
+            "v": "<valor>",
+            "duration": 0.65,
+            "ease": "power2.out"
+          }
+        },
+        "note": "onUpdate escreve toLocaleString('pt-BR'); a barra usa o mesmo tempo e ease.",
+        "template": "stat",
+        "registry": "count-up"
+      }
+    },
+    "timeline_node_pulse": {
+      "name": "Pulso de Nó de Linha do Tempo",
+      "description": "Nó cronológico acende com halo dourado quando o ponto processual é narrado.",
+      "duration_s": 0.5,
+      "pulse_scale": 1.3,
+      "sfx_default": "digital_chime_pop",
+      "sfx_db_offset": -16,
+      "gsap": {
+        "to": {
+          "scale": 1.3,
+          "duration": 0.12,
+          "ease": "power2.out"
+        },
+        "settle": {
+          "scale": 1,
+          "duration": 0.3,
+          "ease": "power2.inOut"
+        },
+        "halo": {
+          "from": {
+            "scale": 1,
+            "opacity": 0.7
+          },
+          "to": {
+            "scale": 2.3,
+            "opacity": 0,
+            "duration": 0.55,
+            "ease": "power2.out"
+          }
+        },
+        "template": "timeline"
+      }
+    },
+    "kinetic_stagger": {
+      "name": "Cascata Cinética de Itens",
+      "description": "Sequência de 2 a 4 argumentos entrando com delay progressivo de 80ms entre cada um.",
+      "duration_per_item_s": 0.32,
+      "delay_between_items_s": 0.08,
+      "easing": "ease_out_cubic",
+      "sfx_default": "soft_click_pop",
+      "sfx_db_offset": -18,
+      "gsap": {
+        "from": {
+          "x": -14,
+          "opacity": 0
+        },
+        "to": {
+          "x": 0,
+          "opacity": 1,
+          "duration": 0.3,
+          "ease": "power3.out"
+        },
+        "stagger_s": 0.08,
+        "note": "Itens narrados entram na palavra que os diz (item_at), não em cascata cega.",
+        "template": "checklist"
+      }
+    },
+    "glitch_law_warning": {
+      "name": "Flicker de Alerta Jurídico",
+      "description": "Dois micro-flickers de cor terracota chamando atenção para nulidade, risco ou prazo fatal.",
+      "duration_s": 0.28,
+      "flicker_count": 2,
+      "sfx_default": "glitch_static_short",
+      "sfx_db_offset": -15,
+      "gsap": {
+        "keyframes": {
+          "opacity": [1, 0.35, 1, 0.5, 1]
+        },
+        "duration": 0.28,
+        "ease": "none",
+        "note": "Só para prazo fatal/nulidade; no máximo uma vez por vídeo.",
+        "registry": "glitch"
+      }
+    },
+    "paper_veil_bottom_wipe": {
+      "name": "Dissolvência de Papel Inferior (Estado B)",
+      "description": "Transição suave de dissolvência em papel com véu inferior começando na borda y=830 e estendendo 310px abaixo via curva smootherstep, sem nunca tocar no queixo ou gravata.",
+      "duration_s": 0.42,
+      "easing": "smootherstep",
+      "start_y": 830,
+      "height_px": 310,
+      "stops_count": 28,
+      "max_opacity": 0.985,
+      "sfx_default": "gentle_paper_slide",
+      "sfx_db_offset": -18,
+      "gsap": {
+        "note": "Gradiente estático de 28 stops (smootherstep) de y=830 a y=1140 num overlay; anime só a opacidade do overlay (0,42 s power2.inOut)."
+      }
+    },
+    "paper_veil_hook_top": {
+      "name": "Véu de Papel Gancho Topo (Estado H)",
+      "description": "Véu branco texturizado descendo até y=660 revelando card de notícia no topo sem invadir a área facial do apresentador.",
+      "duration_s": 0.4,
+      "easing": "ease_out_cubic",
+      "border_y": 660,
+      "sfx_default": "paper_page_turn_subtle",
+      "sfx_db_offset": -18,
+      "gsap": {
+        "from": {
+          "yPercent": -100
+        },
+        "to": {
+          "yPercent": 0,
+          "duration": 0.4,
+          "ease": "power2.out"
+        },
+        "note": "Borda inferior em y=660; nunca sobre o rosto."
+      }
+    },
+    "avatar_circle_reveal": {
+      "name": "Revelação do Avatar Circular (Estado C)",
+      "description": "Avatar circular (raio 148px) entra em escala 0.88 -> 1.00 com borda NAVY 5px sobre fundo papel branco puro.",
+      "duration_s": 0.38,
+      "easing": "back_overshoot",
+      "center_x": 540,
+      "center_y": 420,
+      "radius_px": 148,
+      "sfx_default": "switch_click_92470",
+      "sfx_db_offset": -16,
+      "gsap": {
+        "from": {
+          "scale": 0.88,
+          "opacity": 0
+        },
+        "to": {
+          "scale": 1,
+          "opacity": 1,
+          "duration": 0.38,
+          "ease": "back.out(1.4)"
+        },
+        "note": "Recorte via `npx hyperframes remove-background` ou clip-path: circle() num wrapper; nunca CSS filter no vídeo."
+      }
+    },
+    "card_b_central_slide": {
+      "name": "Slide do Card Centralizado B (x195 a x885)",
+      "description": "Card editorial em papel com borda azul clara subindo 25px com fade suave na metade inferior da tela.",
+      "duration_s": 0.35,
+      "easing": "ease_out_cubic",
+      "x_range": [195, 885],
+      "sfx_default": "soft_card_drop",
+      "sfx_db_offset": -17,
+      "gsap": {
+        "from": {
+          "y": 25,
+          "opacity": 0
+        },
+        "to": {
+          "y": 0,
+          "opacity": 1,
+          "duration": 0.35,
+          "ease": "power2.out"
+        }
+      }
+    },
+    "camera_dy_shift": {
+      "name": "Deslocamento de Câmera Vertical dy -190px",
+      "description": "Câmera sobe 190px durante a entrada do estado B para acomodar o card inferior preservando peito e cabeça.",
+      "duration_s": 0.42,
+      "easing": "ease_in_out_cubic",
+      "dy_px": -190,
+      "gsap": {
+        "to": {
+          "y": -190,
+          "duration": 0.42,
+          "ease": "power2.inOut"
+        },
+        "note": "cues.json camera: {kind: shift, dy: -190}. Só no vão entre cards.",
+        "cue": {
+          "kind": "shift",
+          "dy": -190,
+          "dur": 0.42
+        }
+      }
+    },
+    "crm_funnel_stagger": {
+      "name": "Funil Comercial de Concessionária",
+      "description": "Etapas do funil de showroom (Lead -> 1º Contato -> Test-drive -> Proposta -> Entrega) entrando em cascata de cima para baixo com perdas destacadas em vermelho.",
+      "duration_per_step_s": 0.25,
+      "delay_between_steps_s": 0.08,
+      "easing": "sharp_expo",
+      "sfx_default": "tactile_dashboard_click",
+      "sfx_db_offset": -16,
+      "gsap": {
+        "from": {
+          "y": -12,
+          "opacity": 0
+        },
+        "to": {
+          "y": 0,
+          "opacity": 1,
+          "duration": 0.25,
+          "ease": "expo.out"
+        },
+        "stagger_s": 0.08,
+        "registry": "grid-card-assemble"
+      }
+    },
+    "sla_speedometer_needle": {
+      "name": "Velocímetro de SLA / Tempo de Resposta",
+      "description": "Ponteiro estilo velocímetro esportivo girando rapidamente até marcar o tempo limite de atendimento de lead (ex.: 5 MINUTOS) com luz pulsante.",
+      "duration_s": 0.45,
+      "easing": "back_overshoot",
+      "sfx_default": "car_pass_by_whoosh",
+      "sfx_db_offset": -14,
+      "gsap": {
+        "from": {
+          "rotation": -120
+        },
+        "to": {
+          "rotation": "<ângulo>",
+          "duration": 0.45,
+          "ease": "back.out(1.4)"
+        },
+        "note": "transform-origin no eixo do ponteiro; o número do SLA entra com counter_roll."
+      }
+    },
+    "kpi_counter_boost": {
+      "name": "Contador de Performance & Retenção de Pós-Venda",
+      "description": "Incremento acelerado de taxa de conversão ou faturamento com barra vermelha preenchendo o trilho metálico.",
+      "duration_s": 0.6,
+      "easing": "ease_out_cubic",
+      "sfx_default": "digital_car_chime",
+      "sfx_db_offset": -18,
+      "gsap": {
+        "proxy": {
+          "from": {
+            "v": 0
+          },
+          "to": {
+            "v": "<valor>",
+            "duration": 0.6,
+            "ease": "power2.out"
+          }
+        },
+        "template": "stat"
+      }
+    },
+    "lead_leak_alert": {
+      "name": "Alerta de Fuga de Lead / Perda de Showroom",
+      "description": "Impacto seco com badge vermelho pulsante alertando sobre clientes que saíram da concessionária sem cadastro no CRM.",
+      "duration_s": 0.24,
+      "shake_intensity_px": 8,
+      "easing": "sharp_expo",
+      "sfx_default": "exhaust_bass_hit",
+      "sfx_db_offset": -12,
+      "gsap": {
+        "from": {
+          "scale": 1.18,
+          "opacity": 0
+        },
+        "to": {
+          "scale": 1,
+          "opacity": 1,
+          "duration": 0.24,
+          "ease": "expo.out"
+        },
+        "shake": {
+          "keyframes": {
+            "x": [8, -6, 5, -3, 0]
+          },
+          "duration": 0.3,
+          "ease": "none"
+        }
+      }
+    },
+    "warm_story_card_reveal": {
+      "name": "Card Afetivo de Depoimento & Família",
+      "description": "Entrada acolhedora de card na cor de fundo do tema com filete na cor de destaque identificando a família, segmento escolar ou frase-chave do depoimento.",
+      "duration_s": 0.4,
+      "easing": "ease_out_cubic",
+      "transform_start": "translateY(22px) scale(0.96)",
+      "transform_end": "translateY(0px) scale(1.0)",
+      "opacity_start": 0.0,
+      "opacity_end": 1.0,
+      "sfx_default": "warm_tactile_pop",
+      "sfx_db_offset": -16,
+      "gsap": {
+        "from": {
+          "y": 22,
+          "scale": 0.96,
+          "opacity": 0
+        },
+        "to": {
+          "y": 0,
+          "scale": 1,
+          "opacity": 1,
+          "duration": 0.4,
+          "ease": "power2.out"
+        }
+      }
+    },
+    "pillar_badges_cascade": {
+      "name": "Cascata de Pilares Educacionais",
+      "description": "Pílulas de diferenciais pedagógicos (sistema de ensino, programa bilíngue, período integral, valores) surgindo em sequência orgânica.",
+      "duration_per_step_s": 0.3,
+      "delay_between_steps_s": 0.09,
+      "easing": "back_overshoot",
+      "sfx_default": "celesta_discovery_chime",
+      "sfx_db_offset": -17,
+      "gsap": {
+        "from": {
+          "scale": 0.88,
+          "opacity": 0
+        },
+        "to": {
+          "scale": 1,
+          "opacity": 1,
+          "duration": 0.3,
+          "ease": "back.out(1.5)"
+        },
+        "stagger_s": 0.09
+      }
+    },
+    "anniversary_gleam": {
+      "name": "Brilho Comemorativo de Aniversário",
+      "description": "Revelação de selo comemorativo (ex.: anos da instituição) com varredura luminosa dourada (#FFE06D) e estrela de 4 pontas sutil.",
+      "duration_s": 0.48,
+      "easing": "ease_out_cubic",
+      "sfx_default": "warm_marimba_chord",
+      "sfx_db_offset": -16,
+      "gsap": {
+        "note": "Varredura de brilho: registry `gloss-sweep` ou `shimmer-sweep` restilizado com #FFE06D.",
+        "registry": "gloss-sweep"
+      }
+    },
+    "enrollment_cta_pulse": {
+      "name": "Pílula de CTA Convidativa",
+      "description": "Pílula de CTA (cor de destaque com texto na cor de fundo) entrando com leve overshoot convidativo para agendamento de visita.",
+      "duration_s": 0.36,
+      "easing": "back_overshoot",
+      "sfx_default": "warm_tactile_pop",
+      "sfx_db_offset": -15,
+      "gsap": {
+        "from": {
+          "scale": 0.9,
+          "opacity": 0
+        },
+        "to": {
+          "scale": 1,
+          "opacity": 1,
+          "duration": 0.36,
+          "ease": "back.out(1.5)"
+        },
+        "note": "Sem pulso em loop depois de pousar (loops de 'respiração' parecem gerados)."
+      }
+    },
+    "scene_exit_fade_up": {
+      "name": "Saída Universal de Cena",
+      "description": "Todo o grupo gráfico sobe 18px e desvanece suavemente antes da próxima cena entrar.",
+      "duration_s": 0.28,
+      "easing": "ease_in_out_cubic",
+      "transform_end": "translateY(-18px)",
+      "opacity_end": 0.0,
+      "sfx_default": null,
+      "gsap": {
+        "from": {
+          "y": 0,
+          "opacity": 1,
+          "filter": "blur(0px)"
+        },
+        "to": {
+          "y": -12,
+          "opacity": 0,
+          "filter": "blur(6px)",
+          "duration": 0.26,
+          "ease": "power3.in"
+        },
+        "note": "Saída 40–50% mais curta que a entrada; termina 1 quadro antes do fim do clip.",
+        "template": "todas as cenas"
+      }
+    }
+  },
+  "web_trend_search_guidelines": {
+    "description": "Diretrizes para pesquisa e incorporação de tendências visuais validadas na web.",
+    "search_queries_recommended": [
+      "motion graphics trends 2026 vertical video hooks",
+      "retention editing animations remotion tiktok typography",
+      "explainer video motion techniques vox bloomberg",
+      "high retention legal financial reels design patterns"
+    ],
+    "validation_criteria": [
+      "Nunca comprometer a legibilidade ou a sobriedade jurídica (OAB 205/2021).",
+      "Manter a zona segura superior (y=250 até acima da cabeça).",
+      "Garantir curvas de aceleração orgânicas (nunca lineares secas sem easing).",
+      "Sempre associar um SFX sutil com volume mixado a -14 a -20 dB abaixo da fala."
+    ]
+  },
+  "gsap_ease_equivalents": {
+    "ease_out_cubic": "power2.out",
+    "ease_in_out_cubic": "power2.inOut",
+    "back_overshoot": "back.out(1.6)",
+    "elastic_impact": "elastic.out(1, 0.5)",
+    "sharp_expo": "expo.out",
+    "smootherstep": "power2.inOut (aproximação; para o véu de papel use a curva de 28 stops no gradiente, não no tempo)"
+  },
+  "motion_craft_rules": {
+    "description": "Regras medidas (HyperFrames motion.md) adaptadas à skill. Valem para qualquer motor (HyperFrames, Remotion, FFmpeg).",
+    "ease_by_role": {
+      "entrada": "expo.out / power4.out (cauda longa)",
+      "camera_e_inundacao_de_cor": "power2.inOut",
+      "saida_e_zoom_through": "power3.in",
+      "linear": "somente rotação, progresso e velocidade constante"
+    },
+    "exit_shorter_than_entrance": "saída 40–50% mais curta que a entrada",
+    "overlap": "o próximo elemento começa quando o anterior está 30–50% feito",
+    "stagger_s": {
+      "letras": 0.033,
+      "palavras": [0.06, 0.12],
+      "itens_de_lista": [0.04, 0.08]
+    },
+    "hold_reading_s": "0,5 s + 0,3 s por palavra; a última linha do filme no mínimo 2 s",
+    "title_entrances_variety": [
+      "blur 8px→0 por palavra a cada 0,067 s",
+      "linha inteira blur 8px→0 em 0,13–0,2 s",
+      "cinza→tinta por palavra a cada 0,07–0,1 s",
+      "por letra para nomes (0,1 s)",
+      "título atrás do apresentador (recorte remove-background)",
+      "palavra em roleta (slot machine) a 0,1 s por giro"
+    ],
+    "banned_generated_defaults": [
+      "loops de respiração/flutuação em títulos",
+      "título que continua escalando depois de pousar",
+      "bounce em UI",
+      "toda cena entrando igual",
+      "todo elemento com fade + slide-up",
+      "push lento tardio no fim da cena"
+    ],
+    "transitions_with_cause": "3–5 tipos por vídeo, cada um causado por algo na tela; no máximo 1/3 das emendas como corte seco entre blocos"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json.schemastore.org/mcp-settings.json",
+  "description": "Configuração do ElevenLabs MCP para o Neuro MV Edit. Com o plugin do Claude Code não há nada a configurar: o .mcp.json do plugin já traz o servidor; autorize uma vez em /mcp.",
+  "elevenlabs_mcp_options": {
+    "hosted_http": {
+      "description": "Endpoint Oficial Hospedado ElevenLabs com autenticação segura OAuth (Recomendado)",
+      "endpoint_url": "https://api.elevenlabs.io/v1/mcp",
+      "claude_code_command": "claude mcp add --transport http elevenlabs https://api.elevenlabs.io/v1/mcp",
+      "config_snippet": {
+        "mcpServers": {
+          "elevenlabs": {
+            "type": "http",
+            "url": "https://api.elevenlabs.io/v1/mcp"
+          }
+        }
+      },
+      "plugin_note": "Plugin do Claude Code: já incluído (.mcp.json). Só a skill no Claude Code: use claude_code_command. Outros agentes: config_snippet no arquivo MCP do agente."
+    },
+    "local_uvx": {
+      "description": "Servidor Local Python via uvx/pip para workflows customizados",
+      "command": "uvx",
+      "args": [
+        "elevenlabs-mcp"
+      ],
+      "env_required": [
+        "ELEVENLABS_API_KEY"
+      ],
+      "config_snippet": {
+        "mcpServers": {
+          "elevenlabs": {
+            "command": "uvx",
+            "args": [
+              "elevenlabs-mcp"
+            ],
+            "env": {
+              "ELEVENLABS_API_KEY": "${ELEVENLABS_API_KEY}"
+            }
+          }
+        }
+      }
+    }
+  },
+  "tools_utilized_by_neuro_mv_edit": [
+    {
+      "name": "text_to_sound_effects",
+      "purpose": "Geração dinâmica sob demanda de efeitos sonoros com duração exata para cada animação gráfica (whooshes, clicks, impacts)",
+      "mandatory": true
+    },
+    {
+      "name": "compose_music",
+      "purpose": "Geração de trilhas de fundo instrumentais (pads, corporate audio) mixadas com ducking automático",
+      "mandatory": false
+    },
+    {
+      "name": "isolate_audio",
+      "purpose": "Isolamento acústico de voz e remoção cirúrgica de ruído ambiente em gravações cruas de celular",
+      "mandatory": false
+    }
+  ]
+}

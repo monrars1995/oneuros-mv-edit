@@ -1,0 +1,77 @@
+{
+  "name": "neuro-mv-edit",
+  "version": "1.10.0",
+  "description": "Sistema de pós-produção audiovisual e motion graphics de alta retenção para criadores de conteúdo, instituições de ensino e equipes de edição/produção (multi-segmento: Jurídico Agro, Tributário, Automotivo CRM, Educação Bilíngue, Negócios). Dois motores de edição: Remotion (padrão, com Studio) e HyperFrames; instalação guiada por agente e biblioteca de perfis, temas e estilos.",
+  "main": "cli/cli.js",
+  "bin": {
+    "neuro-mv-edit": "./cli/cli.js"
+  },
+  "exports": {
+    ".": "./plugins/dsh/index.js",
+    "./package.json": "./package.json"
+  },
+  "icon": ".claude-plugin/icon.png",
+  "dsh": {
+    "bundle": {
+      "patch": "./plugins/dsh/cordis.patch.yml"
+    },
+    "manifestVersion": 1
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monrars1995/oneuros-mv-edit.git"
+  },
+  "keywords": [
+    "reels",
+    "tiktok",
+    "shorts",
+    "motion-graphics",
+    "video-editing",
+    "video-production",
+    "content-creators",
+    "dealership",
+    "crm",
+    "education",
+    "bilingual-school",
+    "hyperframes",
+    "heygen",
+    "gsap",
+    "html-to-video",
+    "remotion",
+    "elevenlabs",
+    "mcp",
+    "ai-agent",
+    "claude-skill",
+    "gemini-skill",
+    "antigravity"
+  ],
+  "author": "Ramon Ribeiro <204264780+monrars1995@users.noreply.github.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/monrars1995/oneuros-mv-edit/issues"
+  },
+  "homepage": "https://github.com/monrars1995/oneuros-mv-edit#readme",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "files": [
+    "bin",
+    "cli",
+    "commands",
+    "agents",
+    "hooks",
+    ".mcp.json",
+    "skills",
+    ".claude-plugin",
+    "plugin.json",
+    "plugins",
+    "docs",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "version:check": "node cli/version.js check",
+    "version:set": "node cli/version.js set"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "neuro-mv-edit",
+  "version": "1.10.0",
+  "description": "Pós-produção e motion graphics de alta retenção para vídeos verticais e horizontais (Reels, TikTok, Shorts, YouTube, Feed): decupagem automática, legendas pt-BR, edição no Remotion Studio ou no HyperFrames com a identidade de cada perfil, sound design sincronizado, master −14 LUFS, metadados, copy e entrega organizada.",
+  "author": {
+    "name": "Ramon Ribeiro",
+    "url": "https://github.com/monrars1995"
+  },
+  "homepage": "https://github.com/monrars1995/oneuros-mv-edit",
+  "repository": "https://github.com/monrars1995/oneuros-mv-edit",
+  "license": "MIT",
+  "keywords": [
+    "video-editing",
+    "reels",
+    "tiktok",
+    "shorts",
+    "motion-graphics",
+    "captions",
+    "hyperframes",
+    "remotion",
+    "elevenlabs",
+    "pt-br"
+  ]
+}
